@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rhappdeveloper.shoppinglist.R
 import com.rhappdeveloper.shoppinglist.data.db.ShoppingDatabase
@@ -24,7 +23,7 @@ class ShoppingActivity : AppCompatActivity(), KodeinAware {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping)
 
-        val viewModel = ViewModelProviders.of(this, factory).get(ShoppingViewModel::class.java)
+        val viewModel = ViewModelProvider(this, factory).get(ShoppingViewModel::class.java)
 
         val adapter = ShoppingItemAdapter(listOf(), viewModel)
 
